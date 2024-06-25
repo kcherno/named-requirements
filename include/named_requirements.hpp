@@ -77,19 +77,27 @@ public:
 	-> decltype(static_cast<bool>(std::declval<T>().empty()));
 
     constexpr static bool value =
-	std::is_convertible<iterator, const_iterator>::value &&
+	std::is_convertible<iterator,
+			    const_iterator
+			    >::value
+	&&
 	
 	std::is_same<difference_type,
 		     typename
 		     std::iterator_traits<iterator>::difference_type
-		     >::value &&
+		     >::value
+	&&
 
 	std::is_same<difference_type,
 		     typename
 		     std::iterator_traits<const_iterator>::difference_type
-		     >::value &&
+		     >::value
+	&&
 
-	is_representable_by<difference_type, size_type>::value &&
+	is_representable_by<difference_type,
+			    size_type
+			    >::value
+	&&
 	
 	std::is_default_constructible<T>::value &&
 	std::is_copy_constructible<T>::value    &&
