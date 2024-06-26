@@ -4,6 +4,8 @@
 #include <iterator>
 #include <utility>
 
+#include "feature-macros/include/cxx_standard.hpp"
+
 namespace name_requirement
 {
     namespace iterator
@@ -20,11 +22,11 @@ template<typename T>
 class name_requirement::iterator::is_legacy_iterator
 {
 public:
-#if   __cplusplus >= 202002L
+#if   __cplusplus >= CXX20_STANDARD__
 
     // TODO(#1): add C++20 changes
 
-#elif __cplusplus >= 201103L
+#elif __cplusplus >= CXX11_STANDARD__
 
     using difference_type   = typename std::iterator_traits<T>::difference_type;
     using value_type        = typename std::iterator_traits<T>::value_type;
@@ -54,11 +56,11 @@ private:
     using this_type = typename std::add_pointer<T>::type;
     
 public:
-#if   __cplusplus >= 202002L
+#if   __cplusplus >= CXX20_STANDARD__
 
     // TODO(#2): add C++20 changes
 
-#elif __cplusplus >= 201103L
+#elif __cplusplus >= CXX11_STANDARD__
 
     using difference_type =
 	typename std::iterator_traits<this_type>::difference_type;
