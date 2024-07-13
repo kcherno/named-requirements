@@ -12,5 +12,6 @@ namespace name_requirement::container_requirement
 	{
 	    { c.capacity() } -> std::same_as<typename T::size_type>;
 	    { c.reserve(n) };
+	    { c.shrink_to_fit() };
 	};
 }
